@@ -1093,7 +1093,7 @@ data-fouc-class-names="swift-loading"
                       <span>&rlm;</span><span class="username js-action-profile-name" data-aria-label-part><s>@</s><b><%= tweet.user.screen_name %></b></span>
                     </a>
                   </div>
-                  <p class="TweetTextSize  js-tweet-text tweet-text" lang="en" data-aria-label-part="0"><%= tweet.text %></p>
+                  <p class="TweetTextSize  js-tweet-text tweet-text" lang="en" data-aria-label-part="0"><%= auto_link(tweet.text).html_safe %></p>
 
                   <div class="stream-item-footer">
                     <span class="ProfileTweet-action--reply u-hiddenVisually"></span>

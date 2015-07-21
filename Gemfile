@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'omniauth-twitter'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'twitter'
+gem 'twitter-text'
 
 group :development, :test do
   gem 'byebug'
