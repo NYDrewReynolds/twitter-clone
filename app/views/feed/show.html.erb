@@ -548,7 +548,7 @@ s,
     }
 
     .DashboardProfileCard-bg {
-      background-image: url(https://pbs.twimg.com/profile_banners/367814457/1418016509/600x200);
+      background-image: url(<%= current_user.banner_image %>);
     }
 
     body.user-style-NYDrewReynolds .profile-canopy .bg-img {
@@ -642,7 +642,7 @@ data-fouc-class-names="swift-loading"
 
 
           <a class="DashboardProfileCard-avatarLink u-inlineBlock" href="#" title="Drew Reynolds" tabindex="-1" aria-hidden="true">
-            <img class="DashboardProfileCard-avatarImage js-action-profile-avatar" src="https://pbs.twimg.com/profile_images/621039554439458816/bvc-icCb_bigger.jpg" alt="">
+            <img class="DashboardProfileCard-avatarImage js-action-profile-avatar" src="<%= current_user.profile_image %>" alt="">
           </a>
 
       <div class="DashboardProfileCard-userFields">
