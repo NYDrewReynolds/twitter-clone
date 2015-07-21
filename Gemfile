@@ -12,6 +12,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '~> 5.0'
 gem 'omniauth-twitter'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'twitter'
 
 group :development, :test do
   gem 'byebug'

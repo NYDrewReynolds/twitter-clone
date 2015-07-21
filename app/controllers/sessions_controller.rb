@@ -10,10 +10,6 @@ class SessionsController < ApplicationController
     end
   end
 
-  # def create
-  #   render text: request.env["omniauth.auth"].inspect
-  # end
-
   def destroy
     session.clear
     redirect_to root_path
