@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   get '/feed', to: 'feed#show'
   root 'home#show'
+
+  resources :tweets, only: [:create]
 end

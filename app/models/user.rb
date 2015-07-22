@@ -49,4 +49,8 @@ class User < ActiveRecord::Base
   def friends_count
     twitter_user_profile.friends_count
   end
+
+  def update_status(tweet)
+    twitter_client.update(tweet)
+  end
 end
