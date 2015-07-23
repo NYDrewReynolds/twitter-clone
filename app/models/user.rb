@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def twitter_user_profile
-    twitter_client.user
+    @profile ||= twitter_client.user
   end
 
   def twitter_timeline

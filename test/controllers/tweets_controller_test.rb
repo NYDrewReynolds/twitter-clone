@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TweetssControllerTest < ActionController::TestCase
+class TweetsControllerTest < ActionController::TestCase
   test "user can post a tweet" do
     user = User.create( uid: "1",
         name: "Drew Reynolds",
@@ -12,9 +12,7 @@ class TweetssControllerTest < ActionController::TestCase
 
     VCR.use_cassette("drew_tweets") do
       post :create, :tweet => "Tweeting from my twitter clone: https://drew-twitter-clone.herokuapp.com"
-      assert_response :success
-      assert_not_nil assigns(:tweets)
-      assert_select "li.tweet"
+      assert_response 302
     end
   end
 end
