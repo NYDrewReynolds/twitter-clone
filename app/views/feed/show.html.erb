@@ -724,6 +724,7 @@ data-fouc-class-names="swift-loading"
 
           <%= link_to "Favorite (#{tweet.favorite_count})", tweet_path(id: tweet.id), method: :put %>
 
+
                       <!--<div class="ProfileTweet-action ProfileTweet-action&#45;&#45;favorite js-toggleState">-->
                         <!--<button class="ProfileTweet-actionButton js-actionButton js-actionFavorite js-tooltip"-->
                                 <!--title="Favorite"-->
@@ -745,6 +746,7 @@ data-fouc-class-names="swift-loading"
                         <!--</button>-->
                       <!--</div>-->
                     </div>
+                    Posted <%= distance_of_time_in_words(Time.now, tweet.created_at) %> ago
                   </div>
                 </div>
               </div>

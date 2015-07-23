@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def twitter_user_profile
-    @profile ||= twitter_client.user
+    twitter_client.user
   end
 
   def twitter_timeline
@@ -55,6 +55,6 @@ class User < ActiveRecord::Base
   end
 
   def favorite(tweet_id)
-    twitter_client.favorite(tweet_id)
+    twitter_client.favorite(id)
   end
 end
