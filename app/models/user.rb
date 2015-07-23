@@ -53,4 +53,8 @@ class User < ActiveRecord::Base
   def update_status(tweet)
     twitter_client.update(tweet)
   end
+
+  def favorite(tweet_id)
+    twitter_client.favorite(tweet_id)
+  end
 end

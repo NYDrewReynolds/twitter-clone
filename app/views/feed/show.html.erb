@@ -534,9 +534,7 @@ s,
 data-fouc-class-names="swift-loading"
  dir="ltr">
 
-      <script id="swift_loading_indicator" nonce="iPSiXMCyNEOvBwRlVcm8Pg==">
-        document.body.className=document.body.className+" "+document.body.getAttribute("data-fouc-class-names");
-      </script>
+
     <div id="doc" class="route-home">
         <div class="topbar js-topbar">
 
@@ -661,7 +659,7 @@ data-fouc-class-names="swift-loading"
 
               <%= form_tag(tweets_path, method: 'post') do %>
                   <%= text_field_tag :tweet %>
-                  <%= submit_tag "Send a Tweet!" %>
+                  <%= submit_tag "Send a Tweet!", class: "btn primary-btn" %>
               <% end %>
 
 
@@ -698,17 +696,6 @@ data-fouc-class-names="swift-loading"
                   <p class="TweetTextSize  js-tweet-text tweet-text" lang="en" data-aria-label-part="0"><%= auto_link(tweet.text).html_safe %></p>
 
                   <div class="stream-item-footer">
-                    <span class="ProfileTweet-action--reply u-hiddenVisually"></span>
-      <span class="ProfileTweet-action--retweet u-hiddenVisually">
-        <span class="ProfileTweet-actionCount" data-tweet-stat-count="23">
-          <span class="ProfileTweet-actionCountForAria" data-aria-label-part>23 retweets</span>
-        </span>
-      </span>
-      <span class="ProfileTweet-action--favorite u-hiddenVisually">
-        <span class="ProfileTweet-actionCount" data-tweet-stat-count="58">
-          <span class="ProfileTweet-actionCountForAria" data-aria-label-part>58 favorites</span>
-        </span>
-      </span>
 
                     <div role="group" aria-label="Tweet actions" class="ProfileTweet-actionList u-cf js-actions">
 
@@ -720,7 +707,7 @@ data-fouc-class-names="swift-loading"
                           <span class="Icon Icon--retweet"></span>
                           <span class="u-hiddenVisually">Retweet</span>
             <span class="ProfileTweet-actionCount">
-              <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">23</span>
+              <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true"><%= tweet.retweet_count %></span>
             </span>
                         </button>
                         <button class="ProfileTweet-actionButtonUndo js-actionButton js-actionRetweet js-tooltip"
@@ -730,32 +717,33 @@ data-fouc-class-names="swift-loading"
                           <span class="Icon Icon--retweet"></span>
                           <span class="u-hiddenVisually">Retweeted</span>
             <span class="ProfileTweet-actionCount">
-              <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">23</span>
+              <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true"><%= tweet.retweet_count %></span>
             </span>
                         </button>
                       </div>
 
+          <%= link_to "Favorite (#{tweet.favorite_count})", tweet_path(id: tweet.id), method: :put %>
 
-                      <div class="ProfileTweet-action ProfileTweet-action--favorite js-toggleState">
-                        <button class="ProfileTweet-actionButton js-actionButton js-actionFavorite js-tooltip"
-                                title="Favorite"
-                                type="button">
-                          <span class="Icon Icon--favorite"></span>
-                          <span class="u-hiddenVisually">Favorite</span>
-            <span class="ProfileTweet-actionCount">
-                <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">58</span>
-            </span>
-                        </button>
-                        <button class="ProfileTweet-actionButtonUndo u-linkClean js-actionButton js-actionFavorite js-tooltip"
-                                title="Undo favorite"
-                                type="button">
-                          <span class="Icon Icon--favorite"></span>
-                          <span class="u-hiddenVisually">Favorited</span>
-            <span class="ProfileTweet-actionCount">
-                <span class="ProfileTweet-actionCountForPresentation" aria-hidden="true">58</span>
-            </span>
-                        </button>
-                      </div>
+                      <!--<div class="ProfileTweet-action ProfileTweet-action&#45;&#45;favorite js-toggleState">-->
+                        <!--<button class="ProfileTweet-actionButton js-actionButton js-actionFavorite js-tooltip"-->
+                                <!--title="Favorite"-->
+                                <!--type="button">-->
+                          <!--<span class="Icon Icon&#45;&#45;favorite"></span>-->
+                          <!--<span class="u-hiddenVisually">Favorite</span>-->
+            <!--<span class="ProfileTweet-actionCount">-->
+                <!--<span class="ProfileTweet-actionCountForPresentation" aria-hidden="true"><%#= tweet.favorite_count %></span>-->
+            <!--</span>-->
+                        <!--</button>-->
+                        <!--<button class="ProfileTweet-actionButtonUndo u-linkClean js-actionButton js-actionFavorite js-tooltip"-->
+                                <!--title="Undo favorite"-->
+                                <!--type="button">-->
+                          <!--<span class="Icon Icon&#45;&#45;favorite"></span>-->
+                          <!--<span class="u-hiddenVisually">Favorited</span>-->
+            <!--<span class="ProfileTweet-actionCount">-->
+                <!--<span class="ProfileTweet-actionCountForPresentation" aria-hidden="true"><%#= tweet.favorite_count %></span>-->
+            <!--</span>-->
+                        <!--</button>-->
+                      <!--</div>-->
                     </div>
                   </div>
                 </div>
@@ -3817,10 +3805,3 @@ data-fouc-class-names="swift-loading"
 </html>
   <input type="hidden" id="init-data" class="json-data" value="{&quot;profileHoversEnabled&quot;:false,&quot;permalinkOverlayEnabled&quot;:false,&quot;baseFoucClass&quot;:&quot;swift-loading&quot;,&quot;bodyFoucClassNames&quot;:&quot;swift-loading&quot;,&quot;macawSwift&quot;:true,&quot;assetsBasePath&quot;:&quot;https:\/\/abs.twimg.com\/a\/1437342192\/&quot;,&quot;assetVersionKey&quot;:&quot;c6f1bb&quot;,&quot;environment&quot;:&quot;production&quot;,&quot;formAuthenticityToken&quot;:&quot;db72680ff15c6a50d5777248516c1f0081b33cc8&quot;,&quot;loggedIn&quot;:true,&quot;screenName&quot;:&quot;NYDrewReynolds&quot;,&quot;fullName&quot;:&quot;Drew Reynolds&quot;,&quot;userId&quot;:&quot;367814457&quot;,&quot;allowAdsPersonalization&quot;:true,&quot;scribeBufferSize&quot;:3,&quot;pageName&quot;:&quot;home&quot;,&quot;sectionName&quot;:&quot;home&quot;,&quot;scribeParameters&quot;:{&quot;lang&quot;:&quot;en&quot;},&quot;recaptchaApiUrl&quot;:&quot;https:\/\/www.google.com\/recaptcha\/api\/js\/recaptcha_ajax.js&quot;,&quot;internalReferer&quot;:null,&quot;geoEnabled&quot;:false,&quot;typeaheadData&quot;:{&quot;accounts&quot;:{&quot;enabled&quot;:true,&quot;localQueriesEnabled&quot;:true,&quot;remoteQueriesEnabled&quot;:true,&quot;limit&quot;:6},&quot;trendLocations&quot;:{&quot;enabled&quot;:true},&quot;dmConversations&quot;:{&quot;enabled&quot;:true},&quot;savedSearches&quot;:{&quot;enabled&quot;:true,&quot;items&quot;:[{&quot;name&quot;:&quot;#cis3810&quot;,&quot;id_str&quot;:&quot;298735612&quot;,&quot;search_query_source&quot;:&quot;saved_search_click&quot;,&quot;query&quot;:&quot;#cis3810&quot;,&quot;saved_search_path&quot;:&quot;\/search?q=%23cis3810&amp;src=savs&quot;,&quot;id&quot;:298735612}]},&quot;dmAccounts&quot;:{&quot;enabled&quot;:true,&quot;localQueriesEnabled&quot;:true,&quot;remoteQueriesEnabled&quot;:true,&quot;onlyDMable&quot;:true},&quot;mediaTagAccounts&quot;:{&quot;enabled&quot;:true,&quot;localQueriesEnabled&quot;:true,&quot;remoteQueriesEnabled&quot;:true,&quot;onlyShowUsersWithCanMediaTag&quot;:false,&quot;currentUserId&quot;:367814457},&quot;selectedUsers&quot;:{&quot;enabled&quot;:true},&quot;prefillUsers&quot;:{&quot;enabled&quot;:true},&quot;topics&quot;:{&quot;enabled&quot;:true,&quot;localQueriesEnabled&quot;:false,&quot;remoteQueriesEnabled&quot;:true,&quot;prefetchLimit&quot;:500,&quot;limit&quot;:4},&quot;concierge&quot;:{&quot;enabled&quot;:false,&quot;localQueriesEnabled&quot;:false,&quot;remoteQueriesEnabled&quot;:false,&quot;prefetchLimit&quot;:500,&quot;limit&quot;:6},&quot;recentSearches&quot;:{&quot;enabled&quot;:true},&quot;hashtags&quot;:{&quot;enabled&quot;:true,&quot;localQueriesEnabled&quot;:false,&quot;remoteQueriesEnabled&quot;:true,&quot;prefetchLimit&quot;:500},&quot;useIndexedDB&quot;:false,&quot;showSearchAccountSocialContext&quot;:true,&quot;showTypeaheadTopicSocialContext&quot;:false,&quot;showDebugInfo&quot;:false,&quot;useThrottle&quot;:true,&quot;accountsOnTop&quot;:false,&quot;remoteDebounceInterval&quot;:300,&quot;remoteThrottleInterval&quot;:300,&quot;reverseBoldingEnabled&quot;:false,&quot;tweetContextEnabled&quot;:false,&quot;fullNameMatchingInCompose&quot;:true,&quot;topicsWithFiltersEnabled&quot;:true},&quot;dm&quot;:{&quot;participant_max&quot;:50,&quot;theme&quot;:&quot;rosetta&quot;},&quot;pushStatePageLimit&quot;:500000,&quot;routes&quot;:{&quot;profile&quot;:&quot;\/NYDrewReynolds&quot;},&quot;pushState&quot;:true,&quot;viewContainer&quot;:&quot;#page-container&quot;,&quot;dragAndDropPhotoUpload&quot;:true,&quot;href&quot;:&quot;\/&quot;,&quot;searchPathWithQuery&quot;:&quot;\/search?q=query&amp;src=typd&quot;,&quot;timelineCardsGallery&quot;:true,&quot;deciders&quot;:{&quot;bulkUnfollowEnabled&quot;:true,&quot;custom_timeline_curation&quot;:false,&quot;disable_profile_popup&quot;:false,&quot;dm_flag_conversation&quot;:false,&quot;dm_max_characters&quot;:140,&quot;dm_polling_frequency_in_seconds&quot;:3,&quot;enable_media_tag_prefetch&quot;:true,&quot;enableMacawNymizerConversionLanding&quot;:false,&quot;geoStructuredLocationEnabled&quot;:true,&quot;hqImageUploads&quot;:false,&quot;largeHeaderImageUpload&quot;:true,&quot;mqImageUploads&quot;:false,&quot;partnerIdSyncEnabled&quot;:true,&quot;photoSruGif&quot;:false,&quot;progressive_resize_enabled&quot;:true,&quot;promoted_video_logging_enabled&quot;:true,&quot;pushState&quot;:true,&quot;scribeActionQueue&quot;:false,&quot;scribeReducedActionQueue&quot;:true,&quot;smartInfiniteScroll&quot;:false,&quot;useHtml5Webcam&quot;:true,&quot;web_perftown_stats&quot;:true,&quot;web_perftown_ttft&quot;:true,&quot;web_upload_direct&quot;:true,&quot;web_upload_video&quot;:false,&quot;tweetbox_dynamic_media_previews&quot;:false,&quot;tweetbox_bigger_media_previews&quot;:false,&quot;dynamicVideoAdsEnabled&quot;:true,&quot;internationalShippingEnabled&quot;:true,&quot;useV2EndpointsEnabled&quot;:true,&quot;topVideosEnabled&quot;:false,&quot;autoplayMediaInTimeline&quot;:true,&quot;useVmapVariants&quot;:false},&quot;experiments&quot;:{},&quot;permalinkCardsGallery&quot;:false,&quot;toasts_dm&quot;:true,&quot;toasts_spoonbill&quot;:true,&quot;toasts_timeline&quot;:false,&quot;toasts_dm_poll_scale&quot;:60,&quot;uploadDomain&quot;:&quot;upload.twitter.com&quot;,&quot;promptbirdData&quot;:{&quot;promptbirdEnabled&quot;:true,&quot;immediateTriggers&quot;:[&quot;PullToRefresh&quot;,&quot;Navigate&quot;],&quot;format&quot;:&quot;HomeTimeline&quot;},&quot;freezeDashboard&quot;:false,&quot;deviceEnabled&quot;:true,&quot;hasPushDevice&quot;:true,&quot;smsDeviceVerified&quot;:true,&quot;inResearchGroup&quot;:false,&quot;shouldReplaceSignupWithLogin&quot;:false,&quot;shouldUseEducationalSignupDialogs&quot;:false,&quot;pollingOptions&quot;:{&quot;focusedInterval&quot;:10000,&quot;blurredInterval&quot;:100000,&quot;backoffFactor&quot;:2,&quot;backoffEmptyResponseLimit&quot;:2,&quot;pauseAfterBackoff&quot;:true,&quot;resumeItemCount&quot;:100},&quot;emptyTimelineOptions&quot;:{&quot;pc&quot;:true,&quot;connections&quot;:true,&quot;limit&quot;:3,&quot;display_location&quot;:&quot;wtf-component&quot;,&quot;dismissable&quot;:false,&quot;disabled&quot;:false,&quot;emptyTimelineModule&quot;:false,&quot;followingCount&quot;:1370},&quot;help_pips_decider&quot;:false,&quot;injectComposedTweets&quot;:true,&quot;moreCSSBundles&quot;:[&quot;https:\/\/abs.twimg.com\/a\/1437342192\/css\/t1\/twitter_more_1.bundle.css&quot;,&quot;https:\/\/abs.twimg.com\/a\/1437342192\/css\/t1\/twitter_more_2.bundle.css&quot;],&quot;timeline_url&quot;:&quot;\/i\/timeline&quot;,&quot;reinjectedPromotedTweets&quot;:true,&quot;show_sms_confirmation_dialog&quot;:false,&quot;profileEditingCSSBundle&quot;:&quot;https:\/\/abs.twimg.com\/a\/1437342192\/css\/t1\/twitter_profile_editing.bundle.css&quot;,&quot;injectTweetOnFollow&quot;:true,&quot;registerWebN&quot;:false,&quot;trendsCacheKey&quot;:&quot;db11f19824&quot;,&quot;decider_personalized_trends&quot;:true,&quot;trendsEndpoint&quot;:&quot;\/i\/trends&quot;,&quot;wtfOptions&quot;:{&quot;pc&quot;:true,&quot;connections&quot;:true,&quot;limit&quot;:3,&quot;display_location&quot;:&quot;wtf-component&quot;,&quot;dismissable&quot;:true,&quot;disabled&quot;:false},&quot;hasUserCompletionModule&quot;:false,&quot;inlineTweetComposeEnabled&quot;:false,&quot;inlineTweetComposeOptions&quot;:{&quot;text&quot;:null},&quot;initialState&quot;:{&quot;title&quot;:&quot;Twitter&quot;,&quot;section&quot;:&quot;home&quot;,&quot;module&quot;:&quot;app\/pages\/home&quot;,&quot;cache_ttl&quot;:300,&quot;body_class_names&quot;:&quot;three-col logged-in user-style-NYDrewReynolds enhanced-mini-profile&quot;,&quot;doc_class_names&quot;:&quot;route-home&quot;,&quot;route_name&quot;:&quot;home&quot;,&quot;page_container_class_names&quot;:&quot;AppContent wrapper wrapper-home&quot;,&quot;ttft_navigation&quot;:false}}">
 
-
-
-    <input type="hidden" class="swift-boot-module" value="app/pages/home">
-  <input type="hidden" id="swift-module-path" value="https://abs.twimg.com/c/swift/en">
-
-
-    <script src="https://abs.twimg.com/c/swift/en/init.83e9bd594a7b685651d5b66542cca1d44734703e.js" async></script>
