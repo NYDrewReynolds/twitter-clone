@@ -55,6 +55,6 @@ class User < ActiveRecord::Base
   end
 
   def favorite(tweet_id)
-    twitter_client.favorite(id)
+    twitter_client.favorite(tweet_id)
   end
 end
